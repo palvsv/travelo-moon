@@ -6,13 +6,13 @@ $menus = [
         'icon'  => 'icon ion-ios-desktop',
         "position"=>0
     ],
-    'review'=>[
-        "position"=>50,
-        'url'   => 'admin/module/review',
-        'title' => __("Reviews"),
-        'icon'  => 'icon ion-ios-text',
-        'permission' => 'review_manage_others',
-    ],
+    // 'review'=>[
+    //     "position"=>50,
+    //     'url'   => 'admin/module/review',
+    //     'title' => __("Reviews"),
+    //     'icon'  => 'icon ion-ios-text',
+    //     'permission' => 'review_manage_others',
+    // ],
     'menu'=>[
         "position"=>60,
         'url'        => 'admin/module/core/menu',
@@ -20,13 +20,13 @@ $menus = [
         'icon'       => 'icon ion-ios-apps',
         'permission' => 'menu_view',
     ],
-    'template'=>[
-        "position"=>70,
-        'url'        => 'admin/module/template',
-        'title'      => __('Templates'),
-        'icon'       => 'icon ion-logo-html5',
-        'permission' => 'template_create',
-    ],
+    // 'template'=>[
+    //     "position"=>70,
+    //     'url'        => 'admin/module/template',
+    //     'title'      => __('Templates'),
+    //     'icon'       => 'icon ion-logo-html5',
+    //     'permission' => 'template_create',
+    // ],
     'general'=>[
         "position"=>80,
         'url'        => 'admin/module/core/settings/index/general',
