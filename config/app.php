@@ -1,5 +1,4 @@
 <?php
-
 return [
 
     /*
@@ -13,7 +12,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Booking Core'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +38,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -173,7 +172,22 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+
+        /*
+        * Custom Service Providers...
+        */
+        Modules\ServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class, // Xử lý ảnh,
+        Barryvdh\Debugbar\ServiceProvider::class, // Debug BAR
+
         App\Providers\RouteServiceProvider::class,
+        Plugins\ServiceProvider::class,
+        Custom\ServiceProvider::class,
+        App\Providers\AdminRouteServiceProvider::class,
+       Propaganistas\LaravelPhone\PhoneServiceProvider::class,
+
+
 
     ],
 
@@ -225,7 +239,39 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class
 
     ],
+
+    'debug_blacklist' => [
+        '_ENV' => [
+            'APP_KEY',
+            'DB_PASSWORD',
+            'REDIS_PASSWORD',
+            'MAIL_PASSWORD',
+            'PUSHER_APP_KEY',
+            'PUSHER_APP_SECRET',
+            "REDIS_HOST",
+            "SCRIPT_FILENAME",
+            "DOCUMENT_ROOT"
+        ],
+        '_SERVER' => [
+            'APP_KEY',
+            'DB_PASSWORD',
+            'REDIS_PASSWORD',
+            'MAIL_PASSWORD',
+            'PUSHER_APP_KEY',
+            'PUSHER_APP_SECRET',
+            "MAILGUN_SECRET",
+            "MAIL_USERNAME"
+        ],
+        '_POST' => [
+            'password',
+        ],
+    ],
+
+    'version'=>"1.8.2",
+
+    'updater_url'=>"http://check.bookingcore.org/updater.php"
 
 ];
