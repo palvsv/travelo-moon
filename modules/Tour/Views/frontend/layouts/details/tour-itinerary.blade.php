@@ -11,9 +11,9 @@
                     <div class="body">
                         <div class="item-title">{{$item['title']}}</div>
                         <div class="item-desc">{{$item['desc']}}</div>
-                        <div class="item-context">
+                        {{-- <div class="item-context">
                             {!! clean($item['content']) !!}
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             @endforeach
