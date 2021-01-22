@@ -1,3 +1,30 @@
+
+<style>
+    /* .bravo_wrap .bravo_footer .mailchimp .subcribe-form .btn-submit{
+        background: #2b81ff!important;
+	} */
+	.bravo_wrap .bravo_topbar,
+	.owner-info .avatar-text,
+	.bravo_wrap .bravo_detail_tour .bravo_content .g-itinerary .list-item .item .item-title,
+	.bravo-reviews .review-list .review-item .review-item-head .media .media-left .avatar-text,
+	.bravo_wrap .page-template-content .bravo-call-to-action .context,
+	.bravo_wrap .bravo_footer .mailchimp .subcribe-form .btn-submit,
+	.bravo_wrap .bravo-contact-block .contact-info .info-content,
+	.bravo_wrap .bravo_detail_tour .bravo_banner .btn-group .btn:hover {
+		    background: #5faa37!important;
+	}
+	.bravo_wrap .bravo_footer .mailchimp .media-left i,
+	.bravo_wrap .bravo_footer .mailchimp .media-body .media-heading,
+	.g-tour-feature .icon i,
+	.bravo_wrap .bravo_footer .main-footer .nav-footer .context .contact .sub,
+	.bravo_wrap .bravo_footer .main-footer .nav-footer .context .contact .sub a i{
+		color: #5faa37;
+	}
+	.review-score{
+		display: none;
+	}
+</style>
+
 @if(!is_api())
 	<div class="bravo_footer">
 		<div class="mailchimp">
@@ -27,7 +54,7 @@
 									</div>
 									<div class="form-mess"></div>
 								</form>
-							
+
 							</div>
 						</div>
 					</div>

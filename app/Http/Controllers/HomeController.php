@@ -25,6 +25,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+     public function front(){
+        // dd('hello');
+        return view('front');
+     }
     public function index()
     {
         $home_page_id = setting_item('home_page_id');

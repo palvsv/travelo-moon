@@ -98,6 +98,7 @@
         };
     </script>
     <!-- Styles -->
+    @stack('after-styles')
     @yield('head')
     {{--Custom Style--}}
     <link href="{{ route('core.style.customCss') }}" rel="stylesheet">

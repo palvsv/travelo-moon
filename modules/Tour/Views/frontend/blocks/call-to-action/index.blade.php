@@ -1,3 +1,13 @@
+@push('after-styles')
+<style>
+    .bravo_wrap .page-template-content .bravo-call-to-action .context{
+        background:#0068ffd4!important
+    }
+    .bravo_wrap .page-template-content .bravo-call-to-action .context .title{
+        color: white;
+    }
+</style>
+@endpush
 <div class="bravo-call-to-action">
     <div class="container">
         <div class="context" @if(!empty($bg_color)) style="background-color: {{ $bg_color ?? "#f6b756" }} !important;" @endif>
