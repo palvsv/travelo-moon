@@ -136,5 +136,6 @@
         <div class="location-map">
             <div id="map_content"></div>
         </div>
+
     </div>
 @endif

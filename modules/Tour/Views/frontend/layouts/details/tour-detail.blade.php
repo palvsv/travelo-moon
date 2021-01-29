@@ -154,7 +154,10 @@
     </div>
 
     <div class="location-map">
-        <div id="map_content"></div>
+        {{-- <div id="map_content"></div> --}}
+    </div>
+    <div class="iframe_data">
+        {!!$row->iframe_data!!}
     </div>
 </div>
 @endif

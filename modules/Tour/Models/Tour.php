@@ -61,6 +61,7 @@ class Tour extends Bookable
         'include',
         'exclude',
         'itinerary',
+        'iframe_data',
     ];
     protected $slugField                          = 'slug';
     protected $slugFromField                      = 'title';
@@ -930,7 +931,7 @@ class Tour extends Bookable
         if (!empty($price_range = $request->query('price_range'))) {
             $pri_from = explode(";", $price_range)[0];
             $pri_to = explode(";", $price_range)[1];
-            $raw_sql_min_max = "( (IFNULL(bravo_tours.sale_price,0) > 0 and bravo_tours.sale_price >= ? ) OR (IFNULL(bravo_tours.sale_price,0) <= 0 and bravo_tours.price >= ?) ) 
+            $raw_sql_min_max = "( (IFNULL(bravo_tours.sale_price,0) > 0 and bravo_tours.sale_price >= ? ) OR (IFNULL(bravo_tours.sale_price,0) <= 0 and bravo_tours.price >= ?) )
 								AND ( (IFNULL(bravo_tours.sale_price,0) > 0 and bravo_tours.sale_price <= ? ) OR (IFNULL(bravo_tours.sale_price,0) <= 0 and bravo_tours.price <= ?) )";
             $model_Tour->WhereRaw($raw_sql_min_max, [
                 $pri_from,
