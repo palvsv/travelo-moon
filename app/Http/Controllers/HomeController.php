@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Modules\Tour\Models\Tour;
 use Modules\Page\Models\Page;
 use Modules\News\Models\NewsCategory;
 use Modules\News\Models\Tag;
@@ -27,8 +28,11 @@ class HomeController extends Controller
      */
 
      public function front(){
-        // dd('hello');
-        return view('front');
+        $slider_tours = Tour::all()->take(10);
+        // dd($slider_tours);
+        // $loction = Tour::location();
+        // dd($loction);
+        return view('front')->with(compact('slider_tours'));
      }
     public function index()
     {

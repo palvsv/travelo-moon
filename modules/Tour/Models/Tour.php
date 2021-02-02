@@ -12,6 +12,7 @@ use Modules\Booking\Models\Bookable;
 use Modules\Booking\Models\Booking;
 use Modules\Core\Models\Terms;
 use Modules\Location\Models\Location;
+use Modules\Media\Models\MediaFile;
 use Modules\Review\Models\Review;
 use Modules\Tour\Models\TourTerm;
 use Modules\Media\Helpers\FileHelper;
@@ -1110,5 +1111,15 @@ class Tour extends Bookable
                 "data" => Attributes::getAllAttributesForApi("tour")
             ]
         ];
+    }
+
+    //
+    public function Getlocation($id){
+            $location = Location::where('id',$id)->first();
+            return $location;
+    }
+    public function GetImage($img_id){
+            $img = MediaFile::where('id',$img_id)->first();
+            return $img;
     }
 }
