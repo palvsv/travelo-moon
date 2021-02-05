@@ -20,6 +20,30 @@ $menus = [
         'icon'       => 'icon ion-ios-apps',
         'permission' => 'menu_view',
     ],
+    'Home'=>[
+        "position"=>10,
+        'url'        => 'admin/module/core/menu',
+        'title'      => __("Homepage"),
+        'icon'       => 'icon ion-ios-home',
+        'permission' => 'menu_view',
+        'children' => [
+            'about'=>[
+                'url'        => 'admin/home/about',
+                'title'      => __('About Section'),
+                'permission' => 'language_manage',
+            ],
+            'Whychoose'=>[
+                'url'        => 'admin/home/whychoose',
+                'title'      => __("Why Choose Section"),
+                'permission' => 'language_translation',
+            ],
+            'describe'=>[
+                'url'        => 'admin/home/describe',
+                'title'      => __("Describe Experience"),
+                'permission' => 'system_log_view',
+            ],
+        ]
+    ],
     // 'template'=>[
     //     "position"=>70,
     //     'url'        => 'admin/module/template',
@@ -27,6 +51,7 @@ $menus = [
     //     'icon'       => 'icon ion-logo-html5',
     //     'permission' => 'template_create',
     // ],
+
     'general'=>[
         "position"=>80,
         'url'        => 'admin/module/core/settings/index/general',
@@ -35,6 +60,7 @@ $menus = [
         'permission' => 'setting_update',
         'children'   => \Modules\Core\Models\Settings::getSettingPages()
     ],
+
     'tools'=>[
         "position"=>90,
         'url'      => 'admin/module/core/tools',

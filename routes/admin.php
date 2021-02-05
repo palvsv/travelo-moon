@@ -30,4 +30,6 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','dashboard']], function(
         }
         abort(404);
     });
+    Route::get('/home/about','HomeConfigController@index')->name('admin.home.about');
+
 });

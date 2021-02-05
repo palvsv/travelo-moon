@@ -173,44 +173,7 @@
         </section> --}}
 
         <section class="section-padding">
-            <div class="container">
-                <div class="text-center">
-                    <h6>View Our All Tour Packages &</h6>
-                    <h1>Most Beautiful Places of The World</h1>
-                    <p class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate totam cum, suscipit corrupti ducimus culpa pariatur ab architecto dolores quam quisquam assumenda consectetur consequatur ex nisi, non iste veniam quaerat.</p>
-                </div>
-                <div class="slider row py-5 text-dark">
-                    <div class="tour-packages owl-carousel owl-theme">
-                        @foreach ($slider_tours as $key=>$item)
-                        <div class="item">
-                            <div class="tour-item rounded position-relative">
-                                <div class="tour-content position-relative">
-                                    <div class="timage cm-timage-position">
-                                        <div class="corner-ribbon sticky shadow font-weight-bold">{{$item->price}}</div>
-                                        <img src="{{ asset('uploads')}}/{{$item->GetImage($item->image_id)->file_path}}" alt="" width="100%" height="100%" class="cm-border-radius">
-                                    </div>
-                                    <h5 class="pl-3">{{$item->title}}</h5>
-                                    <p class="pl-3"> {{$item->Getlocation($item->location_id)->name}}</p>
-                                    <div class="d-flex pl-3">
-                                        <div class="pr-3">
-                                            <img src="{{ asset('front-assets/img/calendar.svg')}}" alt="" class="cm-icon-width d-inline-block">
-                                            <span>{{$item->duration}} Days</span>
-                                        </div>
-                                        <div class="">
-                                            <img src="{{ asset('front-assets/img/user.svg')}}" alt="" class="cm-icon-width d-inline-block">
-                                            <span>{{$item->max_people}} Person</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="/tour/{{$item->slug}}" class="btn btn-success btn-sm ml-3 btn-position">BOOK NOW</a>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-
-
-                </div>
-            </div>
+            @include('homepage.alltour')
         </section>
 
 
@@ -339,91 +302,7 @@
             </div>
         </section>
         <section class="section-padding">
-            <div class="container">
-                <div class="text-center">
-                    <h1>Luxury Deals</h1>
-                    <p class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate totam cum, suscipit corrupti ducimus culpa pariatur ab architecto dolores quam quisquam assumenda consectetur consequatur ex nisi, non iste veniam quaerat.</p>
-                </div>
-                <div class="slider row py-5 text-dark">
-                    <div class="luxury-deals owl-carousel owl-theme">
-                        <div class="item">
-                            <div class="tour-item rounded position-relative">
-                                <div class="luxury-content position-relative pt-5">
-                                    <div class="deal-image">
-                                        <div class="luxury-corner-ribbon sticky shadow font-weight-bold">Best Saller</div>
-                                        <img src="{{ asset('front-assets/img/pexels-visionpic-net-2166559.jpg')}}" alt="" width="100%" height="100%" class="cm-border-radius">
-                                    </div>
-                                    <h5 class="pl-3 d-inline-block pr-5">Place Name</h5>
-                                    <img src="{{ asset('front-assets/img/rating.svg')}}" alt="" class="d-inline-block star-img">
-                                    <p class="pl-3">Country / State</p>
-                                    <p class="pl-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae quisquam incidunt alias.</p>
-                                    <span class="font-weight-bold pl-3">6,000</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="tour-item rounded position-relative">
-                                <div class="luxury-content position-relative pt-5">
-                                    <div class="deal-image">
-                                        <div class="luxury-corner-ribbon sticky shadow font-weight-bold">Best Saller</div>
-                                        <img src="{{ asset('front-assets/img/pexels-visionpic-net-2166559.jpg')}}" alt="" width="100%" height="100%" class="cm-border-radius">
-                                    </div>
-                                    <h5 class="pl-3 d-inline-block pr-5">Place Name</h5>
-                                    <img src="{{ asset('front-assets/img/rating.svg')}}" alt="" class="d-inline-block star-img">
-                                    <p class="pl-3">Country / State</p>
-                                    <p class="pl-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae quisquam incidunt alias.</p>
-                                    <span class="font-weight-bold pl-3">6,000</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="tour-item rounded position-relative">
-                                <div class="luxury-content position-relative pt-5">
-                                    <div class="deal-image">
-                                        <div class="luxury-corner-ribbon sticky shadow font-weight-bold">Best Saller</div>
-                                        <img src="{{ asset('front-assets/img/pexels-visionpic-net-2166559.jpg')}}" alt="" width="100%" height="100%" class="cm-border-radius">
-                                    </div>
-                                    <h5 class="pl-3 d-inline-block pr-5">Place Name</h5>
-                                    <img src="img/rating.svg" alt="" class="d-inline-block star-img">
-                                    <p class="pl-3">Country / State</p>
-                                    <p class="pl-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae quisquam incidunt alias.</p>
-                                    <span class="font-weight-bold pl-3">6,000</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="tour-item rounded position-relative">
-                                <div class="luxury-content position-relative pt-5">
-                                    <div class="deal-image">
-                                        <div class="luxury-corner-ribbon sticky shadow font-weight-bold">Best Saller</div>
-                                        <img src="{{ asset('front-assets/img/pexels-visionpic-net-2166559.jpg')}}" alt="" width="100%" height="100%" class="cm-border-radius">
-                                    </div>
-                                    <h5 class="pl-3 d-inline-block pr-5">Place Name</h5>
-                                    <img src="{{ asset('front-assets/img/rating.svg')}}" alt="" class="d-inline-block star-img">
-                                    <p class="pl-3">Country / State</p>
-                                    <p class="pl-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae quisquam incidunt alias.</p>
-                                    <span class="font-weight-bold pl-3">6,000</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="tour-item rounded position-relative">
-                                <div class="luxury-content position-relative pt-5">
-                                    <div class="deal-image">
-                                        <div class="luxury-corner-ribbon sticky shadow font-weight-bold">Best Saller</div>
-                                        <img src="{{ asset('front-assets/img/pexels-visionpic-net-2166559.jpg')}}" alt="" width="100%" height="100%" class="cm-border-radius">
-                                    </div>
-                                    <h5 class="pl-3 d-inline-block pr-5">Place Name</h5>
-                                    <img src="{{ asset('front-assets/img/rating.svg')}}" alt="" class="d-inline-block star-img">
-                                    <p class="pl-3">Country / State</p>
-                                    <p class="pl-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae quisquam incidunt alias.</p>
-                                    <span class="font-weight-bold pl-3">6,000</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                @include('homepage.luxury_deals')
         </section>
         <section class="our-client section-padding">
             <div class="container text-white">
@@ -453,124 +332,7 @@
             </div>
         </section>
         <section class="honeymoon section-padding">
-            <div class="container">
-                <h6 class="font-weight-normal text-center">View Our All Tour Packages &</h6>
-                <h1 class=" text-center">Honeymoon Special <br>Places</h1>
-                <div class="slider row py-5 text-dark">
-                    <div class="luxury-deals owl-carousel owl-theme">
-                        <div class="item">
-                            <div class="tour-item rounded position-relative">
-                                <div class="luxury-content position-relative pt-5">
-                                    <div class="deal-image">
-                                        <div class="luxury-corner-ribbon sticky shadow font-weight-bold">6,000</div>
-                                        <img src="{{ asset('front-assets/img/pexels-visionpic-net-2166559.jpg')}}" alt="" width="100%" height="100%" class="cm-border-radius">
-                                    </div>
-                                    <h5 class="pl-3 font-weight-bold">Place Name</h5>
-                                    <p class="pl-3">Country / State</p>
-                                    <div class="d-flex pl-3">
-                                        <div class="pr-3">
-                                            <img src="{{ asset('front-assets/img/calendar.svg')}}" alt="" class="cm-icon-width d-inline-block">
-                                            <span>6 Days</span>
-                                        </div>
-                                        <div class="">
-                                            <img src="{{ asset('front-assets/img/user.svg')}}" alt="" class="cm-icon-width d-inline-block">
-                                            <span>2 Person</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="tour-item rounded position-relative">
-                                <div class="luxury-content position-relative pt-5">
-                                    <div class="deal-image">
-                                        <div class="luxury-corner-ribbon sticky shadow font-weight-bold">6,000</div>
-                                        <img src="{{ asset('front-assets/img/pexels-visionpic-net-2166559.jpg')}}" alt="" width="100%" height="100%" class="cm-border-radius">
-                                    </div>
-                                    <h5 class="pl-3 font-weight-bold">Place Name</h5>
-                                    <p class="pl-3">Country / State</p>
-                                    <div class="d-flex pl-3">
-                                        <div class="pr-3">
-                                            <img src="{{ asset('front-assets/img/calendar.svg')}}" alt="" class="cm-icon-width d-inline-block">
-                                            <span>6 Days</span>
-                                        </div>
-                                        <div class="">
-                                            <img src="{{ asset('front-assets/img/user.svg')}}" alt="" class="cm-icon-width d-inline-block">
-                                            <span>2 Person</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="tour-item rounded position-relative">
-                                <div class="luxury-content position-relative pt-5">
-                                    <div class="deal-image">
-                                        <div class="luxury-corner-ribbon sticky shadow font-weight-bold">6,000</div>
-                                        <img src="{{ asset('front-assets/img/pexels-visionpic-net-2166559.jpg')}}" alt="" width="100%" height="100%" class="cm-border-radius">
-                                    </div>
-                                    <h5 class="pl-3 font-weight-bold">Place Name</h5>
-                                    <p class="pl-3">Country / State</p>
-                                    <div class="d-flex pl-3">
-                                        <div class="pr-3">
-                                            <img src="{{ asset('front-assets/img/calendar.svg')}}" alt="" class="cm-icon-width d-inline-block">
-                                            <span>6 Days</span>
-                                        </div>
-                                        <div class="">
-                                            <img src="{{ asset('front-assets/img/user.svg')}}" alt="" class="cm-icon-width d-inline-block">
-                                            <span>2 Person</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="tour-item rounded position-relative">
-                                <div class="luxury-content position-relative pt-5">
-                                    <div class="deal-image">
-                                        <div class="luxury-corner-ribbon sticky shadow font-weight-bold">6,000</div>
-                                        <img src="{{ asset('front-assets/img/pexels-visionpic-net-2166559.jpg')}}" alt="" width="100%" height="100%" class="cm-border-radius">
-                                    </div>
-                                    <h5 class="pl-3 font-weight-bold">Place Name</h5>
-                                    <p class="pl-3">Country / State</p>
-                                    <div class="d-flex pl-3">
-                                        <div class="pr-3">
-                                            <img src="{{ asset('front-assets/img/calendar.svg')}}" alt="" class="cm-icon-width d-inline-block">
-                                            <span>6 Days</span>
-                                        </div>
-                                        <div class="">
-                                            <img src="{{ asset('front-assets/img/user.svg')}}" alt="" class="cm-icon-width d-inline-block">
-                                            <span>2 Person</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="tour-item rounded position-relative">
-                                <div class="luxury-content position-relative pt-5">
-                                    <div class="deal-image">
-                                        <div class="luxury-corner-ribbon sticky shadow font-weight-bold">6,000</div>
-                                        <img src="{{ asset('front-assets/img/pexels-visionpic-net-2166559.jpg')}}" alt="" width="100%" height="100%" class="cm-border-radius">
-                                    </div>
-                                    <h5 class="pl-3 font-weight-bold">Place Name</h5>
-                                    <p class="pl-3">Country / State</p>
-                                    <div class="d-flex pl-3">
-                                        <div class="pr-3">
-                                            <img src="{{ asset('front-assets/img/calendar.svg')}}" alt="" class="cm-icon-width d-inline-block">
-                                            <span>6 Days</span>
-                                        </div>
-                                        <div class="">
-                                            <img src="{{ asset('front-assets/img/user.svg')}}" alt="" class="cm-icon-width d-inline-block">
-                                            <span>2 Person</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           @include('homepage.honey_moon_deals')
         </section>
         <section class="perfect-place section-padding bg-grey">
             <div class="container-fluid">
@@ -594,7 +356,7 @@
                 </div>
             </div>
         </section>
-        <section class="choose-us section-padding">
+        {{-- <section class="choose-us section-padding">
             <div class="container">
                 <h6 class="font-weight-normal text-center">We Plan Your Trip Beautiful</h6>
                 <h1 class=" text-center">Why Choose Us?</h1>
@@ -642,39 +404,8 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
-
-<script>
-    $('.tour-packages').owlCarousel({
-    center: true,
-    items:2,
-    loop:false,
-    nav:true,
-    dots:false,
-    margin:10,
-    responsive:{
-        600:{
-            items:4
-        }
-    }
-});
-
-$('.luxury-deals').owlCarousel({
-    center: false,
-    items:2,
-    loop:false,
-    nav:true,
-    dots:false,
-    margin:10,
-    responsive:{
-        600:{
-            items:3
-        }
-    }
-});
-
-
-</script>
+@stack('scripts')
 
 @endsection
