@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use App\User;
 use Modules\Tour\Models\Tour;
 use Modules\Page\Models\Page;
+use App\AboutHome;
+use App\WhyChoose;
+use Modules\Location\Models\Location;
 use Modules\News\Models\NewsCategory;
 use Modules\News\Models\Tag;
 use Modules\News\Models\News;
@@ -29,10 +32,9 @@ class HomeController extends Controller
 
      public function front(){
         $slider_tours = Tour::all()->take(10);
-        // dd($slider_tours);
-        // $loction = Tour::location();
-        // dd($loction);
-        return view('front')->with(compact('slider_tours'));
+        $abouthome =AboutHome::first();
+        $dataWhy =WhyChoose::first();
+        return view('front')->with(compact('slider_tours','abouthome','dataWhy'));
      }
     public function index()
     {

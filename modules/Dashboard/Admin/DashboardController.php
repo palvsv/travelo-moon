@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use Modules\AdminController;
 use Modules\Booking\Models\Booking;
 
-class HomeController extends AdminController
+class DashboardController extends AdminController
 {
     public function index()
     {

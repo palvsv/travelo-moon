@@ -9,6 +9,7 @@
     use Modules\Media\Helpers\FileHelper;
     use Illuminate\Database\Eloquent\SoftDeletes;
     use Modules\Core\Models\SEO;
+    use Modules\Media\Models\MediaFile;
 
     class Location extends Bookable
     {
@@ -121,5 +122,13 @@
                 }
             }
             return $data;
+        }
+
+        public function getImage($location,$id){
+                $img_id = Location::where('id',$id)->first();
+                $img = MediaFile::where('id',$img_id->id)->first();
+                $data = ['image' => $img, 'place' => $img_id->name];
+                return $data;
+
         }
     }

@@ -31,5 +31,8 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','dashboard']], function(
         abort(404);
     });
     Route::get('/home/about','HomeConfigController@index')->name('admin.home.about');
+    Route::post('/home/about','HomeConfigController@store')->name('store.about.data');
+    Route::get('/home/whychoose','HomeConfigController@getWhy')->name('admin.home.why');
+    Route::post('/home/why','HomeConfigController@storeWhy')->name('store.why.data');
 
 });

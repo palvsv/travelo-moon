@@ -177,16 +177,15 @@
         </section>
 
 
-
+        @if(!empty($abouthome))
         <section class="about-banner section-padding">
             <div class="container text-white text-md-left text-sm-center">
                 <div class="row">
                     <div class="col-md-6 col-sm-12 py-5 pr-5">
-                        <h6 class="font-weight-normal">Amazing Tours And Fun</h6>
-                        <h1>About <br> Travelo Moon</h1>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, cupiditate sint fuga placeat voluptate ullam architecto totam eligendi esse modi!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum inventore error, ea expedita officia quis repudiandae perferendis earum consequuntur natus et iusto incidunt tempore? Quia itaque maxime sunt error labore.</p>
-                        <button type="button" class="btn btn-success btn-sm">LEARN MORE</button>
+                        <h6 class="font-weight-normal">{{$abouthome->subtitle}}</h6>
+                        <h1>{{$abouthome->title}}</h1>
+                        <p>{!! $abouthome->description !!}</p>
+                        <button type="button" class="btn btn-success btn-sm">{{$abouthome->button_text}}</button>
                     </div>
                     <div class="col-md-6 col-sm-12 py-5">
                         <div class="cm-shape">
@@ -197,10 +196,13 @@
                 </div>
             </div>
         </section>
+        @endif
+
+        @if(!empty($dataWhy))
         <section class="choose-us section-padding">
             <div class="container">
-                <h6 class="font-weight-normal text-center">We Plan Your Trip Beautiful</h6>
-                <h1 class=" text-center">Why Choose Us?</h1>
+                <h6 class="font-weight-normal text-center">{!! $dataWhy->subtitle !!}</h6>
+                <h1 class=" text-center">{!! $dataWhy->title !!}</h1>
                 <div class="row">
                     <div class="col-md-7 col-sm-12 py-2">
                         <img src="{{ asset('front-assets/img/pngfuel.com(3).png')}}" alt="" width="100%" height="100%">
@@ -211,8 +213,8 @@
                                 <img src="{{ asset('front-assets/img/detached.svg')}}" alt="">
                             </div>
                             <div class="col-9">
-                                <h5>Luxury & Comfort</h5>
-                                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda mollitia, iste maxime.</p>
+                                <h5>{{$dataWhy->item_one}}</h5>
+                                <p class="text-muted">{!! $dataWhy->content_one !!}</p>
                             </div>
                         </div>
                         <div class="row d-flex py-2">
@@ -220,8 +222,8 @@
                                 <img src="{{ asset('front-assets/img/shield.svg')}}" alt="">
                             </div>
                             <div class="col-9">
-                                <h5>Safety & Security</h5>
-                                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda mollitia, iste maxime.</p>
+                                <h5>{{$dataWhy->item_two}}</h5>
+                                <p class="text-muted">{!! $dataWhy->content_two !!}</p>
                             </div>
                         </div>
                         <div class="row d-flex py-2">
@@ -229,8 +231,8 @@
                                 <img src="{{ asset('front-assets/img/open-24-hours.svg')}}" alt="">
                             </div>
                             <div class="col-9">
-                                <h5>24 Hours Support</h5>
-                                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda mollitia, iste maxime.</p>
+                                <h5>{{$dataWhy->item_three}}</h5>
+                                <p class="text-muted">{!! $dataWhy->content_three !!}</p>
                             </div>
                         </div>
                         <div class="row d-flex py-2">
@@ -238,14 +240,16 @@
                                 <img src="{{ asset('front-assets/img/airplane.svg')}}" alt="">
                             </div>
                             <div class="col-9">
-                                <h5>Modern Airecraft</h5>
-                                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda mollitia, iste maxime.</p>
+                                <h5>{{$dataWhy->item_four}}</h5>
+                                <p class="text-muted">{!! $dataWhy->content_four !!}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        @endif
+
         <section id="package-masonary" class="section-padding">
             <div class="container-fluid">
                 <h1 class="text-center">Discribe Your Experiences</h1>
@@ -275,7 +279,7 @@
                 </div>
             </div>
         </section>
-        <section class="trip-plan">
+        {{-- <section class="trip-plan">
             <div class="container position-relative text-white py-5">
                 <h2 class="text-center py-5">Plan Your Trip With Us ?</h2>
                 <div class="row d-flex">
@@ -300,7 +304,7 @@
                     <button type="button" class="cta-btn btn btn-secondary btn-sm col-md-2 col-sm-12 my-3">BOOK NOW</button>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <section class="section-padding">
                 @include('homepage.luxury_deals')
         </section>
