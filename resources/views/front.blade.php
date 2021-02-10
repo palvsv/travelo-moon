@@ -189,7 +189,7 @@
                     </div>
                     <div class="col-md-6 col-sm-12 py-5">
                         <div class="cm-shape">
-                            <img src="{{ asset('front-assets/img/pexels-andrea-piacquadio-3760257.jpg')}}" alt=""  width="100%">
+                            <img src="{{ asset('uploads')}}/{{$abouthome->GetImagePath($abouthome->image_id)->file_path}}" alt=""  width="100%">
                         </div>
                         <img src="{{ asset('front-assets/img/dots-pattern.png')}}" alt="" class="dot-pattern">
                     </div>
@@ -255,25 +255,29 @@
                 <h1 class="text-center">Discribe Your Experiences</h1>
                 <p class="text-center text-muted px-md-5  sub-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos ullam ratione culpa aliquam possimus minus.</p>
                 <table class="" id="banner-table">
+                    @foreach ($home_holiday as $hh)
+                        @php
+                            $datahh = $hh;
+                        @endphp
+                    @endforeach
                     <tr>
-                        <td class="first-banner">
-                            <!-- <img src="/img/164645_v2.jpeg" alt="" width="100%"> -->
-                            <p>PlaceName</p></td>
-                        <td class="second-banner" colspan="2" rowspan="2"><p>PlaceName</p></td>
-                        <td class="third-banner"><p>PlaceName</p></td>
-                        <td class="forth-banner"><p>PlaceName</p></td>
-                        <td class="fifth-banner"><p>PlaceName</p></td>
+
+                        <td class="first-banner" style="background-image: url({{asset('uploads')}}/{{ $datahh->GetHolidayData(1)['image'] }})"><p>{{$datahh->GetHolidayData(1)['place'] }}</p></td>
+                        <td class="second-banner" colspan="2" rowspan="2" style="background-image: url({{asset('uploads')}}/{{ $datahh->GetHolidayData(2)['image'] }})"><p>{{$datahh->GetHolidayData(2)['place'] }}</p></td>
+                        <td class="third-banner" style="background-image: url({{asset('uploads')}}/{{ $datahh->GetHolidayData(3)['image'] }})"><p>{{$datahh->GetHolidayData(3)['place'] }}</p></td>
+                        <td class="forth-banner" style="background-image: url({{asset('uploads')}}/{{ $datahh->GetHolidayData(4)['image'] }})"><p>{{$datahh->GetHolidayData(4)['place'] }}</p></td>
+                        <td class="fifth-banner" style="background-image: url({{asset('uploads')}}/{{ $datahh->GetHolidayData(5)['image'] }})"><p>{{$datahh->GetHolidayData(5)['place'] }}</p></td>
                     </tr>
                     <tr>
-                        <td class="sixth-banner" rowspan="2"><p>PlaceName</p></td>
-                        <td class="" colspan="2"><h1>Holiday<br> Experiences</h1></td>
-                        <td class="eighth-banner" rowspan="2"><p>PlaceName</p></td>
+                        <td class="sixth-banner" rowspan="2" style="background-image: url({{asset('uploads')}}/{{ $datahh->GetHolidayData(6)['image'] }})"><p>{{$datahh->GetHolidayData(6)['place'] }}</p></td>
+                        <td class="" colspan="2" ><h1>Holiday<br> Experiences</h1></td>
+                        <td class="eighth-banner" rowspan="2" style="background-image: url({{asset('uploads')}}/{{ $datahh->GetHolidayData(7)['image'] }})"><p>{{$datahh->GetHolidayData(7)['place'] }}</p></td>
                         <!-- <td rowspan="2"><</td> -->
                     </tr>
                     <tr>
-                        <td class="ninth-banner"><p>PlaceName</p></td>
-                        <td class="tenth-banner" colspan="2"><p>PlaceName</p></td>
-                        <td class="eleventh-banner"><p>PlaceName</p></td>
+                        <td class="ninth-banner" style="background-image: url({{asset('uploads')}}/{{ $datahh->GetHolidayData(8)['image'] }})"><p>{{$datahh->GetHolidayData(8)['place'] }}</p></td>
+                        <td class="tenth-banner" colspan="2" style="background-image: url({{asset('uploads')}}/{{ $datahh->GetHolidayData(9)['image'] }})"><p>{{$datahh->GetHolidayData(9)['place'] }}</p></td>
+                        <td class="eleventh-banner" style="background-image: url({{asset('uploads')}}/{{ $datahh->GetHolidayData(10)['image'] }})"><p>{{$datahh->GetHolidayData(10)['place'] }}</p></td>
                     </tr>
                 </table>
                 </div>

@@ -6,6 +6,7 @@ use Modules\Tour\Models\Tour;
 use Modules\Page\Models\Page;
 use App\AboutHome;
 use App\WhyChoose;
+use App\HomeHoliday;
 use Modules\Location\Models\Location;
 use Modules\News\Models\NewsCategory;
 use Modules\News\Models\Tag;
@@ -34,7 +35,13 @@ class HomeController extends Controller
         $slider_tours = Tour::all()->take(10);
         $abouthome =AboutHome::first();
         $dataWhy =WhyChoose::first();
-        return view('front')->with(compact('slider_tours','abouthome','dataWhy'));
+        $home_holiday = HomeHoliday::all()->take(10);
+        foreach($home_holiday as $datahh){
+            $item = [
+                'id'=>$datahh->id,
+            ];
+        }
+        return view('front')->with(compact('slider_tours','abouthome','dataWhy','home_holiday','item'));
      }
     public function index()
     {

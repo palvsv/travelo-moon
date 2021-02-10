@@ -35,4 +35,9 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','dashboard']], function(
     Route::get('/home/whychoose','HomeConfigController@getWhy')->name('admin.home.why');
     Route::post('/home/why','HomeConfigController@storeWhy')->name('store.why.data');
 
+    Route::get('/home/holiday','HomeConfigController@getHoliday')->name('admin.home.holiday');
+
+    Route::get('/home/holiday/edit/{id}','HomeConfigController@Holidayedit')->name('admin.holiday.edit');
+    Route::post('/home/holiday/store/{id}','HomeConfigController@Holidaystore')->name('store.holiday.data');
+
 });

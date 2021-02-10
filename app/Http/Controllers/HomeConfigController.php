@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\AboutHome;
 use App\WhyChoose;
+use App\HomeHoliday;
 
 use Illuminate\Http\Request;
 
@@ -27,13 +28,15 @@ class HomeConfigController extends Controller
             'description'=>$abouthome->description,
             'button_url'=>$abouthome->button_url,
             'button_text'=>$abouthome->button_text,
-            'button_text'=>$abouthome->button_text
+            'button_text'=>$abouthome->button_text,
+            'image_id'=>$abouthome->image_id,
+
         ];
 
         // dd();
-        return view('admin\Dashboard\about_home', compact('data'));
+        return view('admin.Dashboard.about_home', compact('data'));
         }
-        return view('admin\Dashboard\about_home');
+        return view('admin.Dashboard.about_home');
 
     }
 
@@ -54,14 +57,29 @@ class HomeConfigController extends Controller
             'content_four'=>$datawhy->content_four,
 
         ];
-        return view('admin\Dashboard\why_home', compact('data'));
+        return view('admin.Dashboard.why_home', compact('data'));
     }
-        return view('admin\Dashboard\why_home');
+        return view('admin.Dashboard.why_home');
 
     }
 
 
+    public function getHoliday(){
+        $hh = HomeHoliday::all();
+        return view('admin.Dashboard.home_holiday',compact('hh'));
+    }
+    public function HolidayEdit($id){
+        $hh = HomeHoliday::where('id',$id)->first();
 
+        $data = [
+            'id'=> $hh->id,
+            'place_name'=> $hh->place_name,
+            'image_id'=> $hh->image_id,
+            'position'=> $hh->image_pos,
+            'url'=> $hh->url,
+        ];
+        return view('admin.Dashboard.HomeHoliday.edit',compact('data'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -127,6 +145,18 @@ class HomeConfigController extends Controller
         return redirect()->back()->with('success','Data Successfully Modified');
     }
 
+    public function Holidaystore(Request $request,$id)
+    {
+
+        $hh = HomeHoliday::find($id);
+        $hh->image_id = $request->place_image;
+        $hh->place_name = $request->place_name;
+        $hh->image_pos = $request->position;
+        $hh->url = $request->url;
+        $hh->update();
+
+        return redirect()->back()->with('success','Data Successfully Modified');
+    }
     /**
      * Display the specified resource.
      *
@@ -154,6 +184,7 @@ class HomeConfigController extends Controller
         $abouthome->description = $request->content;
         $abouthome->button_url = $request->btnlink;
         $abouthome->button_text = $request->btnname;
+        $abouthome->image_id = $request->image_id;
         $abouthome->update();
     }
 

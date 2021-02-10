@@ -55,7 +55,7 @@
                                     <div class="panel-body">
                                         <h3 class="panel-body-title">{{ __('Feature Image')}}</h3>
                                         <div class="form-group">
-                                            {!! \Modules\Media\Helpers\FileHelper::fieldUpload('image_id','11') !!}
+                                            {!! \Modules\Media\Helpers\FileHelper::fieldUpload('image_id',$data['image_id']) !!}
                                         </div>
                                     </div>
                                 </div>

@@ -22,7 +22,7 @@ $menus = [
     ],
     'Home'=>[
         "position"=>10,
-        'url'        => 'admin/module/core/menu',
+        'url'=>'#',
         'title'      => __("Homepage"),
         'icon'       => 'icon ion-ios-home',
         'permission' => 'menu_view',
@@ -38,7 +38,7 @@ $menus = [
                 'permission' => 'language_translation',
             ],
             'describe'=>[
-                'url'        => 'admin/home/describe',
+                'url'        => 'admin/home/holiday',
                 'title'      => __("Describe Experience"),
                 'permission' => 'system_log_view',
             ],
