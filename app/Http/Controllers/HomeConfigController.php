@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\AboutHome;
 use App\WhyChoose;
 use App\HomeHoliday;
+use App\PerfectHoliday;
 
 use Illuminate\Http\Request;
 
@@ -47,14 +48,19 @@ class HomeConfigController extends Controller
             'id'=> $datawhy->id,
             'title'=>$datawhy->title,
             'subtitle'=>$datawhy->subtitle,
+            'featured_image'=> $datawhy->featured_image,
             'item_one'=>$datawhy->item_one,
             'content_one'=>$datawhy->content_one,
+            'image_one'=>$datawhy->image_one,
             'item_two'=>$datawhy->item_two,
             'content_two'=>$datawhy->content_two,
+            'image_two'=>$datawhy->image_two,
             'item_three'=>$datawhy->item_three,
             'content_three'=>$datawhy->content_three,
+            'image_three'=>$datawhy->image_three,
             'item_four'=>$datawhy->item_four,
             'content_four'=>$datawhy->content_four,
+            'image_four'=>$datawhy->image_four,
 
         ];
         return view('admin.Dashboard.why_home', compact('data'));
@@ -68,18 +74,15 @@ class HomeConfigController extends Controller
         $hh = HomeHoliday::all();
         return view('admin.Dashboard.home_holiday',compact('hh'));
     }
-    public function HolidayEdit($id){
-        $hh = HomeHoliday::where('id',$id)->first();
 
-        $data = [
-            'id'=> $hh->id,
-            'place_name'=> $hh->place_name,
-            'image_id'=> $hh->image_id,
-            'position'=> $hh->image_pos,
-            'url'=> $hh->url,
-        ];
-        return view('admin.Dashboard.HomeHoliday.edit',compact('data'));
+    public function getPerfect(){
+
+        $pp = PerfectHoliday::all();
+        // dd($pp);
+        return view('admin.Dashboard.perfect_place',compact('pp'));
     }
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -95,18 +98,24 @@ class HomeConfigController extends Controller
         $datawhy = new WhyChoose;
         $datawhy->title = $request->title;
         $datawhy->subtitle = $request->subtitle;
+        $datawhy->featured_image = $request->featured_image;
 
         $datawhy->item_one = $request->item_one;
         $datawhy->content_one = $request->content_one;
+        $datawhy->image_one = $request->image_one;
 
         $datawhy->item_two = $request->item_two;
         $datawhy->content_two = $request->content_two;
+        $datawhy->image_two = $request->image_two;
 
         $datawhy->item_three = $request->item_three;
         $datawhy->content_three = $request->content_three;
+        $datawhy->image_three = $request->image_three;
 
         $datawhy->item_four = $request->item_four;
         $datawhy->content_four = $request->content_four;
+        $datawhy->image_four = $request->image_four;
+
         $datawhy->save();
         }
         else{
@@ -157,6 +166,17 @@ class HomeConfigController extends Controller
 
         return redirect()->back()->with('success','Data Successfully Modified');
     }
+
+    public function Perfectstore(Request $request)
+    {
+        $pp =  new PerfectHoliday;
+        $pp->place_name = $request->place_name;
+        $pp->image_id = $request->place_image;
+        $pp->url = $request->url;
+        $pp->save();
+
+        return redirect()->back()->with('success','Place has been created Successfully.');
+    }
     /**
      * Display the specified resource.
      *
@@ -192,15 +212,59 @@ class HomeConfigController extends Controller
     {
         //
         // dd($id);
-        $abouthome = AboutHome::find($id);
-        $abouthome->title = $request->title;
-        $abouthome->subtitle = $request->subtitle;
-        $abouthome->description = $request->content;
-        $abouthome->button_url = $request->btnlink;
-        $abouthome->button_text = $request->btnname;
-        $abouthome->update();
+        $datawhy = WhyChoose::findOrFail($id);
+        $datawhy->title = $request->title;
+        $datawhy->subtitle = $request->subtitle;
+        $datawhy->featured_image = $request->featured_image;
+        $datawhy->item_one = $request->item_one;
+        $datawhy->content_one = $request->content_one;
+        $datawhy->image_one = $request->image_one;
+
+        $datawhy->item_two = $request->item_two;
+        $datawhy->content_two = $request->content_two;
+        $datawhy->image_two = $request->image_two;
+
+        $datawhy->item_three = $request->item_three;
+        $datawhy->content_three = $request->content_three;
+        $datawhy->image_three = $request->image_three;
+
+        $datawhy->item_four = $request->item_four;
+        $datawhy->content_four = $request->content_four;
+        $datawhy->image_four = $request->image_four;
+
+        $datawhy->update();
     }
 
+    public function HolidayEdit($id){
+        $hh = HomeHoliday::where('id',$id)->first();
+
+        $data = [
+            'id'=> $hh->id,
+            'place_name'=> $hh->place_name,
+            'image_id'=> $hh->image_id,
+            'position'=> $hh->image_pos,
+            'url'=> $hh->url,
+        ];
+        return view('admin.Dashboard.HomeHoliday.edit',compact('data'));
+    }
+
+
+    public function PerfectCreate(Request $request){
+
+        return view('admin.Dashboard.PerfectPlace.create');
+        // return redirect()->back()->with('message','Place has been created Successfully');
+    }
+    public function PerfectEdit($id){
+        $pp = PerfectHoliday::where('id',$id)->first();
+
+        $data = [
+            'id'=> $pp->id,
+            'place_name'=> $pp->place_name,
+            'image_id'=> $pp->image_id,
+            'url'=> $pp->url,
+        ];
+        return view('admin.Dashboard.PerfectPlace.edit',compact('data'));
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -208,9 +272,17 @@ class HomeConfigController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function Perfectupdate(Request $request, $id)
     {
         //
+        $pp = PerfectHoliday::find($id);
+        $pp->image_id = $request->place_image;
+        $pp->place_name = $request->place_name;
+        $pp->url = $request->url;
+        $pp->update();
+
+        return redirect()->back()->with('success','Place has been modified Successfully.');
+
     }
 
     /**

@@ -32,6 +32,7 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','dashboard']], function(
     });
     Route::get('/home/about','HomeConfigController@index')->name('admin.home.about');
     Route::post('/home/about','HomeConfigController@store')->name('store.about.data');
+
     Route::get('/home/whychoose','HomeConfigController@getWhy')->name('admin.home.why');
     Route::post('/home/why','HomeConfigController@storeWhy')->name('store.why.data');
 
@@ -39,5 +40,13 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','dashboard']], function(
 
     Route::get('/home/holiday/edit/{id}','HomeConfigController@Holidayedit')->name('admin.holiday.edit');
     Route::post('/home/holiday/store/{id}','HomeConfigController@Holidaystore')->name('store.holiday.data');
+
+    Route::get('/home/perfect/','HomeConfigController@getPerfect')->name('admin.perfect.place');
+    Route::get('/home/perfect/create','HomeConfigController@PerfectCreate')->name('admin.perfect.create');
+    Route::post('/home/perfect/place/store/','HomeConfigController@Perfectstore')->name('store.perfect.data');
+    Route::get('/home/perfect/place/edit/{id}','HomeConfigController@PerfectEdit')->name('admin.perfect.edit');
+    Route::post('/home/perfect/place/update/{id}','HomeConfigController@Perfectupdate')->name('update.perfect.data');
+
+
 
 });

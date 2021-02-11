@@ -42,6 +42,11 @@ $menus = [
                 'title'      => __("Describe Experience"),
                 'permission' => 'system_log_view',
             ],
+            'perfect'=>[
+                'url'        => 'admin/home/perfect/',
+                'title'      => __("Perfect Holidays"),
+                'permission' => 'system_log_view',
+            ],
         ]
     ],
     // 'template'=>[

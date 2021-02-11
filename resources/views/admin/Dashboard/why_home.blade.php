@@ -35,6 +35,9 @@
                                     <label>{{ __('Sub-title')}}</label>
                                     <input type="text" value="@if(!empty($data['subtitle'])) {{$data['subtitle']}}  @endif" placeholder="Subtitle title" name="subtitle" class="form-control">
                                 </div>
+                                <div class="form-group">
+                                    {!! \Modules\Media\Helpers\FileHelper::fieldUpload('featured_image',$data['featured_image']) !!}
+                                </div>
                             </div>
                             <div class="panel-title">
                                 <strong>{{ __('List Item 1')}}</strong>
@@ -55,7 +58,7 @@
                                 </div>
                                 <h3 class="panel-body-title">{{ __('Feature Image')}}</h3>
                                         <div class="form-group">
-                                            {!! \Modules\Media\Helpers\FileHelper::fieldUpload('image_one','11') !!}
+                                            {!! \Modules\Media\Helpers\FileHelper::fieldUpload('image_one',$data['image_one']) !!}
                                         </div>
                             </div>
                             <div class="panel-title">
@@ -79,7 +82,7 @@
                                     <div class="panel-body">
                                         <h3 class="panel-body-title">{{ __('Feature Image')}}</h3>
                                         <div class="form-group">
-                                            {!! \Modules\Media\Helpers\FileHelper::fieldUpload('image_two','11') !!}
+                                            {!! \Modules\Media\Helpers\FileHelper::fieldUpload('image_two',$data['image_two']) !!}
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +109,7 @@
                                     <div class="panel-body">
                                         <h3 class="panel-body-title">{{ __('Feature Image')}}</h3>
                                         <div class="form-group">
-                                            {!! \Modules\Media\Helpers\FileHelper::fieldUpload('image_three','11') !!}
+                                            {!! \Modules\Media\Helpers\FileHelper::fieldUpload('image_three',$data['image_three']) !!}
                                         </div>
                                     </div>
                                 </div>
@@ -133,7 +136,7 @@
                                     <div class="panel-body">
                                         <h3 class="panel-body-title">{{ __('Feature Image')}}</h3>
                                         <div class="form-group">
-                                            {!! \Modules\Media\Helpers\FileHelper::fieldUpload('image_four','11') !!}
+                                            {!! \Modules\Media\Helpers\FileHelper::fieldUpload('image_four',$data['image_four']) !!}
                                         </div>
                                     </div>
                                 </div>

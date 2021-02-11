@@ -189,7 +189,10 @@
                     </div>
                     <div class="col-md-6 col-sm-12 py-5">
                         <div class="cm-shape">
-                            <img src="{{ asset('uploads')}}/{{$abouthome->GetImagePath($abouthome->image_id)->file_path}}" alt=""  width="100%">
+                            @php
+                            $path = $abouthome->GetImagePath($abouthome->image_id);
+                            @endphp
+                            <img src="{{ asset('uploads')}}/{{$path->file_path}}" alt=""  width="100%">
                         </div>
                         <img src="{{ asset('front-assets/img/dots-pattern.png')}}" alt="" class="dot-pattern">
                     </div>
@@ -205,12 +208,12 @@
                 <h1 class=" text-center">{!! $dataWhy->title !!}</h1>
                 <div class="row">
                     <div class="col-md-7 col-sm-12 py-2">
-                        <img src="{{ asset('front-assets/img/pngfuel.com(3).png')}}" alt="" width="100%" height="100%">
+                        <img src="{{ asset('uploads')}}/{{$dataWhy->GetImagePath($dataWhy->featured_image)->file_path}}" alt="" width="100%" height="100%">
                     </div>
                     <div class="col-md-5 col-sm-12 cm-content-padding cm-detail">
                         <div class="row d-flex py-2">
                             <div class="cm-luxury col-3">
-                                <img src="{{ asset('front-assets/img/detached.svg')}}" alt="">
+                                <img src="{{ asset('uploads')}}/{{$dataWhy->GetImagePath($dataWhy->image_one)->file_path}}" alt="">
                             </div>
                             <div class="col-9">
                                 <h5>{{$dataWhy->item_one}}</h5>
@@ -219,7 +222,7 @@
                         </div>
                         <div class="row d-flex py-2">
                             <div class="cm-luxury col-3">
-                                <img src="{{ asset('front-assets/img/shield.svg')}}" alt="">
+                                <img src="{{ asset('uploads')}}/{{$dataWhy->GetImagePath($dataWhy->image_two)->file_path}}" alt="">
                             </div>
                             <div class="col-9">
                                 <h5>{{$dataWhy->item_two}}</h5>
@@ -228,7 +231,7 @@
                         </div>
                         <div class="row d-flex py-2">
                             <div class="cm-luxury col-3">
-                                <img src="{{ asset('front-assets/img/open-24-hours.svg')}}" alt="">
+                                <img src="{{ asset('uploads')}}/{{$dataWhy->GetImagePath($dataWhy->image_three)->file_path}}" alt="">
                             </div>
                             <div class="col-9">
                                 <h5>{{$dataWhy->item_three}}</h5>
@@ -237,7 +240,7 @@
                         </div>
                         <div class="row d-flex py-2">
                             <div class="cm-luxury col-3">
-                                <img src="{{ asset('front-assets/img/airplane.svg')}}" alt="">
+                                <img src="{{ asset('uploads')}}/{{$dataWhy->GetImagePath($dataWhy->image_four)->file_path}}" alt="">
                             </div>
                             <div class="col-9">
                                 <h5>{{$dataWhy->item_four}}</h5>
@@ -342,28 +345,11 @@
         <section class="honeymoon section-padding">
            @include('homepage.honey_moon_deals')
         </section>
+        @if(!empty($perfectPlace))
         <section class="perfect-place section-padding bg-grey">
-            <div class="container-fluid">
-                <h1 class=" text-center">Find The Perfect Escape</h1>
-                <h6 class="font-weight-normal text-center">Choose the Destination Just Right For Your Vacation</h6>
-                <div class="row mt-5 ">
-                    <div class=" col-md-4 col-sm-12  side-img">
-                        <img src="{{ asset('front-assets/img/pexels-asad-photo-maldives-3601426.jpg')}}" alt="" width="100%" height="100%">
-                        <p class="centered">PlaceName</p>
-                        <!-- <figcaption class="figure-caption">A caption for the above image.</figcaption> -->
-                        <!-- <div class="caption-img "><p>PlaceName</p></div> -->
-                    </div>
-                    <div class="col-md-4 col-sm-12 py-2 centerimage">
-                        <img src="{{ asset('front-assets/img/pexels-asad-photo-maldives-3601426.jpg')}}" alt="" width="100%" height="100%">
-                        <p class="centered">PlaceName</p>
-                    </div>
-                    <div class="col-md-4 col-sm-12 side-img">
-                        <img src="{{ asset('front-assets/img/pexels-asad-photo-maldives-3601426.jpg')}}" alt="" width="100%" height="100%">
-                        <p class="centered">PlaceName</p>
-                    </div>
-                </div>
-            </div>
+            @include('homepage.perfect_place')
         </section>
+        @endif
         {{-- <section class="choose-us section-padding">
             <div class="container">
                 <h6 class="font-weight-normal text-center">We Plan Your Trip Beautiful</h6>

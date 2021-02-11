@@ -7,6 +7,8 @@ use Modules\Page\Models\Page;
 use App\AboutHome;
 use App\WhyChoose;
 use App\HomeHoliday;
+use App\PerfectHoliday;
+
 use Modules\Location\Models\Location;
 use Modules\News\Models\NewsCategory;
 use Modules\News\Models\Tag;
@@ -41,7 +43,8 @@ class HomeController extends Controller
                 'id'=>$datahh->id,
             ];
         }
-        return view('front')->with(compact('slider_tours','abouthome','dataWhy','home_holiday','item'));
+        $perfectPlace =PerfectHoliday::all()->take(3);
+        return view('front')->with(compact('slider_tours','abouthome','dataWhy','home_holiday','item','perfectPlace'));
      }
     public function index()
     {

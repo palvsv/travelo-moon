@@ -4,18 +4,17 @@ namespace App;
 use Modules\Media\Models\MediaFile;
 use Illuminate\Database\Eloquent\Model;
 
-class AboutHome extends Model
+class PerfectHoliday extends Model
 {
     //
-    protected $table = "about_homes";
+    protected $table = 'perfect_holidays';
 
-    protected $filable = ['title','subtitle','description','button_url','button_text','image_id'];
 
-    public function GetImagePath($id){
+    public function GetImage($id){
         $img = MediaFile::where('id',$id)->first();
         // $path = $img->file_path;
         $data = ['image' => $img->file_path,];
         return $img;
-
     }
+
 }

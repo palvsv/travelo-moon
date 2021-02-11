@@ -12,6 +12,10 @@
 <link rel="stylesheet" href="{{ asset('front-assets/css/owl-carousel/owl.theme.default.min.css') }}">
 <link rel="stylesheet" href="{{ asset('front-assets/css/style.css') }}">
 <link rel="preconnect" href="https://fonts.gstatic.com">
+
+{{--slick--}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('front-assets/css/slick.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('front-assets/css/slick-theme.css') }}"/>
 {{-- Themelayout css --}}
     <link href="{{ asset('libs/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('libs/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
@@ -32,10 +36,14 @@
 <script src="{{ asset('front-assets/js/popper.min.js') }}"></script>
 <script src="{{ asset('front-assets/js/custom.js') }}"></script>
 <script src="{{ asset('front-assets/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('front-assets/js/slick.min.js') }}"></script>
+<script type="text/javascript" src="https://kenwheeler.github.io/slick/slick/slick.js"></script>
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 {{-- Scripts --}}
 <script src="{{ asset('libs/lodash.min.js') }}"></script>
-<script src="{{ asset('libs/jquery-3.3.1.min.js') }}"></script>
+{{-- <script src="{{ asset('libs/jquery-3.3.1.min.js') }}"></script> --}}
 <script src="{{ asset('libs/vue/vue.js') }}"></script>
 <script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('libs/bootbox/bootbox.min.js') }}"></script>
@@ -72,7 +80,7 @@
         </div>
     </section> --}}
 
-
+@stack('script-front')
 <script>
     $('.tour-packages').owlCarousel({
     center: true,
@@ -102,7 +110,31 @@ $('.luxury-deals').owlCarousel({
     }
 });
 
-
+$('.center').slick({
+  centerMode: true,
+  centerPadding: '60px',
+  slidesToShow: 3,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+  ]
+});
 </script>
 </body>
 </html>
