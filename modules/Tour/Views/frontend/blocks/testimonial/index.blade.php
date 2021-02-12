@@ -1,9 +1,12 @@
 @if($list_item)
+{{-- {{dd($list_item)}}; --}}
+{{-- {{ dd(request()->route()->getAction()) }} --}}
     <div class="bravo-testimonial">
         <div class="container">
             <h3>{{$title}}</h3>
             <div class="row">
                 @foreach($list_item as $item)
+
                     <?php $avatar_url = get_file_url($item['avatar'], 'full') ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="item has-matchHeight">

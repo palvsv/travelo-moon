@@ -35,18 +35,23 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','dashboard']], function(
 
     Route::get('/home/whychoose','HomeConfigController@getWhy')->name('admin.home.why');
     Route::post('/home/why','HomeConfigController@storeWhy')->name('store.why.data');
-
+    /**Luxury Holiday Routes*/
     Route::get('/home/holiday','HomeConfigController@getHoliday')->name('admin.home.holiday');
-
     Route::get('/home/holiday/edit/{id}','HomeConfigController@Holidayedit')->name('admin.holiday.edit');
     Route::post('/home/holiday/store/{id}','HomeConfigController@Holidaystore')->name('store.holiday.data');
-
+    /**Perfect Place Routes */
     Route::get('/home/perfect/','HomeConfigController@getPerfect')->name('admin.perfect.place');
     Route::get('/home/perfect/create','HomeConfigController@PerfectCreate')->name('admin.perfect.create');
     Route::post('/home/perfect/place/store/','HomeConfigController@Perfectstore')->name('store.perfect.data');
     Route::get('/home/perfect/place/edit/{id}','HomeConfigController@PerfectEdit')->name('admin.perfect.edit');
     Route::post('/home/perfect/place/update/{id}','HomeConfigController@Perfectupdate')->name('update.perfect.data');
 
+    /**Client Testimonial Routes */
+    Route::get('/home/testimonial/','HomeConfigController@getTestimonial')->name('admin.testimonial.index');
+    Route::get('/home/testimonial/create','HomeConfigController@TestimonialCreate')->name('admin.testimonial.create');
+    Route::post('/home/testimonial/store/','HomeConfigController@Testimonialstore')->name('store.testimonial.data');
+    Route::get('/home/perfect/place/edit/{id}','HomeConfigController@TestimonialEdit')->name('admin.testimonial.edit');
+    Route::post('/home/perfect/place/update/{id}','HomeConfigController@Testimonialupdate')->name('update.testimonial.data');
 
 
 });

@@ -47,6 +47,12 @@ $menus = [
                 'title'      => __("Perfect Holidays"),
                 'permission' => 'system_log_view',
             ],
+            'testimonial'=>[
+                'url'        => 'admin/home/testimonial/',
+                'title'      => __("Testimonial"),
+                'permission' => 'system_log_view',
+            ],
+            
         ]
     ],
     // 'template'=>[

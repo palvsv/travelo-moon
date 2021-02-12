@@ -42,8 +42,9 @@
                     </div>
                     @if(setting_item('tour_enable_review'))
                     <?php
-                    $reviewData = $row->getScoreReview();
-                    $score_total = $reviewData['score_total'];
+
+                        $reviewData = $row->getScoreReview();
+                        $score_total = $reviewData['score_total'];
                     ?>
                     <div class="service-review tour-review-{{$score_total}}">
                         <div class="list-star">

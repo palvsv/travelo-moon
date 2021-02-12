@@ -14,8 +14,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 
 {{--slick--}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('front-assets/css/slick.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('front-assets/css/slick-theme.css') }}"/>
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
 {{-- Themelayout css --}}
     <link href="{{ asset('libs/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('libs/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
@@ -29,7 +32,6 @@
     <link rel='stylesheet' id='google-font-css-css'  href='https://fonts.googleapis.com/css?family=Poppins%3A300%2C400%2C500%2C600' type='text/css' media='all' />
     <link href="{{ route('core.style.customCss') }}" rel="stylesheet">
     <link href="{{ asset('libs/carousel-2/owl.carousel.css') }}" rel="stylesheet">
-
 {{-- end --}}
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 <script src="{{ asset('front-assets/js/owl.carousel.min.js') }}"></script>
@@ -50,7 +52,7 @@
 {{-- end script --}}
 </head>
 <body>
-
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <header id="header" class="main-header">
        {{-- <script>
             $("header").load("/header.html");

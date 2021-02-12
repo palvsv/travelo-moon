@@ -5,6 +5,7 @@ use App\AboutHome;
 use App\WhyChoose;
 use App\HomeHoliday;
 use App\PerfectHoliday;
+use App\ClientTestimonial;
 
 use Illuminate\Http\Request;
 
@@ -17,7 +18,6 @@ class HomeConfigController extends Controller
      */
     public function index()
     {
-        //
 
         $abouthome = AboutHome::find(1);
         // dd($abouthome);
@@ -40,6 +40,8 @@ class HomeConfigController extends Controller
         return view('admin.Dashboard.about_home');
 
     }
+
+
 
     public function getWhy(){
         $datawhy = WhyChoose::find(1);
@@ -82,6 +84,22 @@ class HomeConfigController extends Controller
         return view('admin.Dashboard.perfect_place',compact('pp'));
     }
 
+    public function getTestimonial(){
+
+        $ct = ClientTestimonial::all();
+        return view('admin.Dashboard.Testimonial',compact('ct'));
+    }
+
+    public function PerfectCreate(){
+
+        return view('admin.Dashboard.PerfectPlace.create');
+
+    }
+    public function TestimonialCreate(){
+
+        return view('admin.Dashboard.Testimonial.create');
+
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -177,6 +195,17 @@ class HomeConfigController extends Controller
 
         return redirect()->back()->with('success','Place has been created Successfully.');
     }
+    public function Testimonialstore(Request $request)
+    {
+        $ct =  new ClientTestimonial;
+        $ct->name = $request->name;
+        $ct->content = $request->content;
+        $ct->image_id = $request->image_id;
+        $ct->save();
+
+        return redirect()->back()->with('success','Testimonial has been added Successfully.');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -249,12 +278,9 @@ class HomeConfigController extends Controller
     }
 
 
-    public function PerfectCreate(Request $request){
 
-        return view('admin.Dashboard.PerfectPlace.create');
-        // return redirect()->back()->with('message','Place has been created Successfully');
-    }
     public function PerfectEdit($id){
+
         $pp = PerfectHoliday::where('id',$id)->first();
 
         $data = [
@@ -264,6 +290,19 @@ class HomeConfigController extends Controller
             'url'=> $pp->url,
         ];
         return view('admin.Dashboard.PerfectPlace.edit',compact('data'));
+    }
+
+    public function TestimonialEdit($id){
+
+        $ct = ClientTestimonial::where('id',$id)->first();
+
+        $data = [
+            'id'=> $ct->id,
+            'name'=> $ct->name,
+            'image_id'=> $ct->image_id,
+            'content'=> $ct->content,
+        ];
+        return view('admin.Dashboard.Testimonial.edit',compact('data'));
     }
     /**
      * Update the specified resource in storage.
@@ -282,6 +321,18 @@ class HomeConfigController extends Controller
         $pp->update();
 
         return redirect()->back()->with('success','Place has been modified Successfully.');
+
+    }
+    public function Testimonialupdate(Request $request, $id)
+    {
+        //
+        $ct = ClientTestimonial::find($id);
+        $ct->name = $request->name;
+        $ct->content = $request->content;
+        $ct->image_id = $request->image_id;
+        $ct->update();
+
+        return redirect()->back()->with('success','Testimonial has been modified Successfully.');
 
     }
 

@@ -340,6 +340,34 @@
                         <p class="font-weight-normal">something.com</p>
                     </div>
                 </div>
+                    <div class="slider slider-for">
+                        <div>
+                        <img src="http://placehold.it/350x100?text=1">
+                        </div>
+                        <div>
+                        <img src="http://placehold.it/350x100?text=2">
+                        </div>
+                        <div>
+                        <img src="http://placehold.it/350x100?text=3">
+                        </div>
+                        <div>
+                            <img src="http://placehold.it/350x100?text=4">
+                            </div>
+                  </div>
+                  <div class="slider slider-nav">
+                    <div>
+                    <img src="http://placehold.it/140x89?text=1">
+                    </div>
+                    <div>
+                    <img src="http://placehold.it/140x89?text=2">
+                    </div>
+                    <div>
+                    <img src="http://placehold.it/140x89?text=3">
+                    </div>
+                    <div>
+                        <img src="http://placehold.it/140x89?text=4">
+                        </div>
+              </div>
             </div>
         </section>
         <section class="honeymoon section-padding">
@@ -400,6 +428,24 @@
             </div>
         </section> --}}
 
-@stack('scripts')
 
+@stack('scripts')
+        <script>
+$('.slider-for').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  fade: true,
+  asNavFor: '.slider-nav'
+});
+$('.slider-nav').slick({
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  asNavFor: '.slider-for',
+  dots: true,
+  centerMode: true,
+  focusOnSelect: true
+
+});
+        </script>
 @endsection
